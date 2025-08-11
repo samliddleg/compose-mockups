@@ -61,13 +61,14 @@ In your module's `build.gradle.kts`:
 
 ```kotlin
 plugins {
-    id("com.google.devtools.ksp") version "2.2.0-2.0.2"
+    id("com.google.devtools.ksp")
     id("uk.co.lidbit.compose.mockups") version "{{version}}"
 }
 
 composeMockups {
     composeVersion.set("YOUR_COMPOSE_VERSION") // required
     mockupsDir.set("my_folder") // optional (default: mockups)
+    sourceSetName.set("desktopMain") // optional (default: main). This should be your main JVM source set
 }
 ```
 

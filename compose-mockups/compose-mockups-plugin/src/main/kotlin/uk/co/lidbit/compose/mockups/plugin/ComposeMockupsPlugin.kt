@@ -155,8 +155,9 @@ class ComposeMockupsPlugin : Plugin<Project> {
             group = "compose mockups"
             description = "Generates device mockup images from Composable functions"
 
+            val sourceSetName = extension.sourceSetName.getOrElse("main")
             val runtimeClasspath = project.extensions.getByType<JavaPluginExtension>()
-                .sourceSets.getByName("main").runtimeClasspath
+                .sourceSets.getByName(sourceSetName).runtimeClasspath
             this.runtimeClasspath.from(runtimeClasspath)
 
             mockupsDir = extension.mockupsDir.getOrElse("mockups")
@@ -165,6 +166,6 @@ class ComposeMockupsPlugin : Plugin<Project> {
             outputs.upToDateWhen { false }
         }
 
-        dependencies.add("implementation", "uk.co.lidbit:compose-mockups:0.1.0")
+        dependencies.add("implementation", "uk.co.lidbit:compose-mockups:0.1.1")
     }
 }
